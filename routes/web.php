@@ -12,6 +12,7 @@
 */
 
 Route::get('/', function () {
-    // return view('welcome');
-    dd(App\Order::get());
+    return view('welcome');
+    // dd(App\Order::get());
 });
+Route::get('/products', 'ProductController@index');

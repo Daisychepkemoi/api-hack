@@ -4,130 +4,122 @@ namespace App\Http\Controllers;
 
 use App\Order_Detail;
 use Illuminate\Http\Request;
+use Validator;
 
 class OrderDetailController extends Controller
 {
-    public function index()
+    public function getAll()
     {
         // $user = auth()->user();
 
-        $Questions = Questions::with(['Answers', 'Comments'])->get();
+        $Order_Detail = Order_Detail::get();
 
-        return $this->sendResponse($Questions->toArray(), 'Questions retrieved successfully.');
+        return response()->json(['message' => 'Order_Detail retrievd successfully','data' => $Order_Detail],200);
+        // return $this->sendResponse($Order_Detail->toArray(), 'Order_Detail retrieved successfully.');
     }
-    public function createQuestion(Request $request){
-     $input = $request->all();
+    public function index($order_id)
+    {
+        // $user = auth()->user();
+
+        $Order_Detail = Order_Detail::where('orders_id',$order_id)->get();
+
+        return response()->json(['message' => 'Order_Detail retrievd successfully','data' => $Order_Detail],200);
+        // return $this->sendResponse($Order_Detail->toArray(), 'Order_Detail retrieved successfully.');
+    }
+    public function show($order_id,$id)
+    {
+        // $user = auth()->user();
+
+        $Order_Detail = Order_Detail::where('orders_id',$order_id)->where('products_id',$id)->get();
+        // dd($Order_Detail);
+
+        return response()->json(['message' => 'Order_Detail retrievd successfully','data' => $Order_Detail],200);
+        // return $this->sendResponse($Order_Detail->toArray(), 'Order_Detail retrieved successfully.');
+    }
+    public function create(Request $request,$order_id){
+        // $user = auth()->user();
+        $input = $request->all();
         $validator = Validator::make($input, [
-            'body' => 'required',
-            // 'users_id' => 'required'
+            // 'order_id' => 'required',
+            'products_id' => 'required',
+
         ]);
         if ($validator->fails())
           {
-            return $this->sendError('Validation Error.', $validator->errors());
+            return response()->json(['Validation Error.'=> $validator->errors()],400);
         }
-        $question = new Questions;
-        $question->users_id = auth()->user()->id;
-        $question->body = $request->body;
-        $question->save();
+        if (count(Order_Detail::where('orders_id',$order_id)->where('products_id',$request->products_id)->get()) != null) {
+            return response()->json(["message" => "Order_Detail already existing."], 403);
+        }
 
-        return response()->json(["message" => "question record created"], 200);
+        $Order_Detail = new Order_Detail;
+        $Order_Detail->orders_id = $order_id;
+        $Order_Detail->products_id = $request->products_id;
+        $Order_Detail->save();
+
+        return response()->json(["message" => "Order_Detail record created successfully"], 200);
     }
    
-   public function updateQuestion(Request $request,$id) {
+   public function edit(Request $request,$order_id,$id) {
            
 
-        $input = $request->all();
+       $input = $request->all();
         $validator = Validator::make($input, [
-            'body' => 'required'
-        ]);
-         if ($validator->fails())
+            // 'name' => 'required',
+            // 'order_id' => 'required',
+            'products_id' => 'required',    
+           ]);
+        if ($validator->fails())
           {
-            return $this->sendError('Validation Error.', $validator->errors());
+            return response()->json(['Validation Error.'=> $validator->errors()],400);
         }
-        $userid = Questions::where('id',$id)->first();
-        // dd(Questions::where('id',$id)->first()->users_id);
-         if (Questions::where('id', $id)->exists())
-            {
-                if(auth()->user()->id == $userid->users_id)
-                {
-                $Question = Questions::where('id', $id)->find($id);
-                $Question->body = $input['body'];
-                $Question->save();
-                return response()->json([$Question, "message" => "Question updated successfully"], 200); 
-                 }
+         // if(auth()->user())
+         
+            // {
+               // if (Order_Detail::where('id', $request->products_id)->exists())
+               //  {
+                $Order_Detail = Order_Detail::where('id', $id)->find($id);
+                $Order_Detail->orders_id = $order_id;
+                $Order_Detail->products_id = $input['products_id'];
+                $Order_Detail->save();
+                return response()->json([ "message" => "Order_Detail updated successfully", 'data'=>$Order_Detail], 200); 
+                 // }
         
-            else{
-                 return response()->json(["message" => " Unauthorized "], 401);
-                }
-        }
-          else{
-            return response()->json(["message" => "Question not found"], 404);
-        }
+            // else{
+            //      return response()->json(["message" => "Order_Detail not found"], 404);
+        //     //     }
+        // }
+        //   else{
+            
+        //     // return response()->json(["message" => " Unauthorized "], 401);
+        // }
     }
 
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+
+    public function destroy($order_id,$id)
     {
-        $Question = Questions::find($id);
-
-
-        if (is_null($Question)) {
-            return response()->json(["message" => "Question not found"], 404);
-        }
-         $questionone = Questions::where('id',$id)->with(['Answers', 'Comments'])->get();
-
-        return $this->sendResponse($questionone->toArray(), 'Questions retrieved successfully.');
-    }
-
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
- 
-
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        $user=auth()->user();
-        $question = Questions::find($id);
-
-        if (is_null($question)) {
-            return $this->sendError('Question not found.');
+        // $user=auth()->user();
+        $Order_Detail = Order_Detail::where('orders_id',$order_id)->where('products_id',$id)->get();
+        // dd($Order_Detail);
+        if (count($Order_Detail) == null) {
+            return response()->json(['Message' => 'Order_Detail not found.'],404);
         }
         else{
 
-             if(auth()->user()->id == Questions::where('id',$id)->first()->users_id)
-                {
-                    $Comments =  Comments::where('questions_id', $id)->delete();
-                    $Answers =  Answers::where('questions_id', $id)->delete();
-                    $Question = Questions::where('id', $id)->delete();
-                    return $this->sendResponse('', 'Questions deleted successfully.');
+             // if(auth()->user())
+                // {
+                    $Order_Detail = Order_Detail::where('orders_id',$order_id)->where('products_id',$id)->delete();
+                    return response()->json(['Message' => 'Order_Details deleted successfully.'],200);
+
      
-                }
-            else
-            {
-                return response()->json(["message" => "Unauthorized"], 401);
+            //     }
+            // else
+            // {
+                // return response()->json(["message" => "Unauthorized"], 401);
 
-            }
+            // }
         }
-       
-        //*check on it later*
-
     }
+       
 }

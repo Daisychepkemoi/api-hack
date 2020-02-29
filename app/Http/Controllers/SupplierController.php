@@ -4,65 +4,69 @@ namespace App\Http\Controllers;
 
 use App\supplier;
 use Illuminate\Http\Request;
+use Validator;
+use App\User;
+
 
 class SupplierController extends Controller
 {
-    public function index()
+     public function index()
     {
         // $user = auth()->user();
 
-        $Questions = Questions::with(['Answers', 'Comments'])->get();
+        $Supplier = Supplier::get();
 
-        return $this->sendResponse($Questions->toArray(), 'Questions retrieved successfully.');
+        return response()->json(['message' => 'Supplier retrievd successfully','data' => $Supplier],200);
+        // return $this->sendResponse($Supplier->toArray(), 'Supplier retrieved successfully.');
     }
-    public function createQuestion(Request $request){
+    public function create(Request $request){
+        // $user = auth()->user();
      $input = $request->all();
         $validator = Validator::make($input, [
-            'body' => 'required',
+            'name' => 'required',
             // 'users_id' => 'required'
         ]);
         if ($validator->fails())
           {
-            return $this->sendError('Validation Error.', $validator->errors());
+            return response()->json(['Validation Error.'=> $validator->errors()],400);
         }
-        $question = new Questions;
-        $question->users_id = auth()->user()->id;
-        $question->body = $request->body;
-        $question->save();
+        $Supplier = new Supplier;
+        $Supplier->name = $request->name;
+        $Supplier->save();
 
-        return response()->json(["message" => "question record created"], 200);
+        return response()->json(["message" => "Supplier record created successfully"], 200);
     }
    
-   public function updateQuestion(Request $request,$id) {
+   public function edit(Request $request,$id) {
            
 
-        $input = $request->all();
+       $input = $request->all();
         $validator = Validator::make($input, [
-            'body' => 'required'
+            'name' => 'required',
         ]);
-         if ($validator->fails())
+        if ($validator->fails())
           {
-            return $this->sendError('Validation Error.', $validator->errors());
+            return response()->json(['Validation Error.'=> $validator->errors()],400);
         }
-        $userid = Questions::where('id',$id)->first();
-        // dd(Questions::where('id',$id)->first()->users_id);
-         if (Questions::where('id', $id)->exists())
-            {
-                if(auth()->user()->id == $userid->users_id)
+         // if(auth()->user())
+         
+            // {
+               if (Supplier::where('id', $id)->exists())
                 {
-                $Question = Questions::where('id', $id)->find($id);
-                $Question->body = $input['body'];
-                $Question->save();
-                return response()->json([$Question, "message" => "Question updated successfully"], 200); 
+                $Supplier = Supplier::where('id', $id)->find($id);
+                $Supplier->name = $input['name'];
+                $Supplier->save();
+                return response()->json([ "message" => "Supplier updated successfully", 'date'=>$Supplier], 200); 
                  }
         
             else{
-                 return response()->json(["message" => " Unauthorized "], 401);
+                 return response()->json(["message" => "Supplier not found"], 404);
                 }
-        }
-          else{
-            return response()->json(["message" => "Question not found"], 404);
-        }
+        // }
+          // else{
+            
+            // return response()->json(["message" => " Unauthorized "], 401);
+        // }
     }
 
 
@@ -74,15 +78,16 @@ class SupplierController extends Controller
      */
     public function show($id)
     {
-        $Question = Questions::find($id);
+        // $user = auth()->user();
+        $Supplier = Supplier::find($id);
 
 
-        if (is_null($Question)) {
-            return response()->json(["message" => "Question not found"], 404);
+        if (is_null($Supplier)) {
+            return response()->json(["message" => "Supplier not found"], 404);
         }
-         $questionone = Questions::where('id',$id)->with(['Answers', 'Comments'])->get();
+         $One_Supplier = Supplier::where('id',$id)->get();
 
-        return $this->sendResponse($questionone->toArray(), 'Questions retrieved successfully.');
+       return response()->json(["message" => "Supplier retrieved successfully", 'data' => $One_Supplier, ], 200); 
     }
 
 
@@ -104,30 +109,28 @@ class SupplierController extends Controller
      */
     public function destroy($id)
     {
-        $user=auth()->user();
-        $question = Questions::find($id);
+        // $user=auth()->user();
+        $Supplier = Supplier::find($id);
 
-        if (is_null($question)) {
-            return $this->sendError('Question not found.');
+        if (is_null($Supplier)) {
+            return response()->json(['Message' => 'Supplier not found.'],404);
         }
         else{
 
-             if(auth()->user()->id == Questions::where('id',$id)->first()->users_id)
-                {
-                    $Comments =  Comments::where('questions_id', $id)->delete();
-                    $Answers =  Answers::where('questions_id', $id)->delete();
-                    $Question = Questions::where('id', $id)->delete();
-                    return $this->sendResponse('', 'Questions deleted successfully.');
-     
-                }
-            else
-            {
-                return response()->json(["message" => "Unauthorized"], 401);
+             // if(auth()->user())
+                // {
+                    $Supplier = Supplier::where('id', $id)->delete();
+                    return response()->json(['Message' => 'Suppliers deleted successfully.'],200);
 
-            }
+     
+                // }
+            // else
+            // {
+            //     // return response()->json(["message" => "Unauthorized"], 401);
+
+            // }
         }
        
         //*check on it later*
-
-    }
+}
 }
