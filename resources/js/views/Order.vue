@@ -1,4 +1,30 @@
 <template>
+      <div class="contain">
+        <div class="sidebar">
+          
+            <ul>
+                <li>
+                    <router-link :to="{ name: 'products' }">Products</router-link>
+                </li>
+                <hr>
+                <li>
+                    <router-link :to="{ name: 'suppliers' }">supplier</router-link>
+                </li>
+                <hr>
+                <li>
+                    <router-link :to="{ name: 'supplierProducts' }">supplierProducts</router-link>
+                </li>
+                <hr>
+                <li>
+                    <router-link :to="{ name: 'orders' }">Order</router-link>
+                </li>
+                <hr>
+                <li>
+                    <router-link :to="{ name: 'orderDetails' }">Order Details</router-link>
+                </li>
+                <hr>
+            </ul>
+        </div>
     <div class="main" id="orders">
         <div class="loading" v-if="loading">
             Loading...
@@ -23,13 +49,13 @@
     </tr>
   </thead>
   <tbody v-if="orders">
-    <tr v-for="{ order_number, created_at } in orders">
+    <tr v-for="{ order_number, created_at,id } in orders">
       <th scope="row"></th>
       <td> {{ order_number }}</td>
       <td>{{ created_at }}</td>
       <td><button class="btn-info"> View    </button></td>
       <td><button class="btn-primary"> Edit </button></td>
-      <td><button class="btn-danger">Delete </button></td>
+      <td><button class="btn-danger" @click="deleteOredr(id)">Delete</button></td>
 
     </tr>
    
@@ -40,6 +66,7 @@
 
         
     </div>
+  </div>
 </template>
 <script>
 import axios from 'axios';
@@ -52,37 +79,88 @@ export default {
         };0
     },
     created() {
-        this.fetchData();
+        this.fetchOrder();
     },
     methods: {
-        fetchData() {
-            this.error = this.orders = null;
-            this.loading = true;
-            axios.get('/api/orders').then(response => {
-                    this.loading = false;
-                    this.orders = response.data.data;
-                    console.log(response);
-        }).catch(error => {
-            this.loading = false;
-            this.error = error.response.data.message || error.message;
-        });;
-
-          
+    
+        fetchOrder() {
+          const token = sessionStorage.getItem('token')
+      const URL = '/api/orders'
+      axios({
+        method: 'get',
+        url: URL,
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
         }
+      })
+        .then(res => {
+          this.orders = res.data.data
+        })
+        .catch(err => {
+          // eslint-disable-next-line
+          console.log(err)
+        })
+    },
+      deleteOrder(id) {
+      const token = sessionStorage.getItem('token')
+      const URL = `/api/orders/${id}/delete`
+     axios({
+        method: 'post',
+        url: URL,
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
+        }
+      })
+        .then(_ => {
+          this.fetchOrder()
+        })
+        .catch(err => {
+          // eslint-disable-next-line
+          console.log(err)
+        })
+    
+  }
     }
 }
 </script>
 
  
 <style type="text/css">
-/*  #orders table{
-    width: 60%;
+.contain {
+    width: 100%;
+    /*height: 100%;*/
+    background-color: ;
+}
+
+.contain .sidebar {
+    width: 20%;
+    float: left;
+    height: 1000px;
+    background-color: grey;
+}
+
+.contain .main {
+    height: 600px;
+    width: 80%;
+    background-color: ;
+    float: right;
+}
+
+.main table{
+    background-color: ;
+    font-size:12px;
+}
+
+.tables table {
+    width: 80%;
     background-color: ;
     font-size: 12px;
-    padding: 5%;
-    margin-left: 30%;
-    margin-right: 5%;
+    /*padding: 5%;*/
+    margin-left: 5%;
+    /*margin-right: 5%;*/
     margin-top: 20px;
-  }*/
+}
 
 </style>

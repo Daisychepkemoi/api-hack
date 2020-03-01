@@ -53,6 +53,12 @@ class AuthController extends Controller
        
         return response()->json(['success' =>$success], 200);
     }
+    public function getUser($token_id){
+        auth()->user();
+        $user = User::where('api_token',$token_id)->first();
+        return response()->json($user,200);
+
+    }
     public function logoutApi(Request $request)
     {
         // if(auth()->user()){

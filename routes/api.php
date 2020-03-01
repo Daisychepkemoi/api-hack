@@ -18,19 +18,19 @@ use Illuminate\Http\Request;
 // });
 
 
-// Route::group(['middleware' => 'auth:api'], function(){
+Route::group(['middleware' => 'auth:api'], function(){
 	Route::get('/suppliers', 'SupplierController@index');
-	Route::get('/suppliers/create', 'SupplierController@create');
+	Route::post('/suppliers/create', 'SupplierController@create');
 	Route::get('/suppliers/{id}', 'SupplierController@show');
 	Route::post('/suppliers/{id}/edit', 'SupplierController@edit');
 	Route::post('/suppliers/{id}/delete', 'SupplierController@destroy');  //should delete all supplierconnected data.
-//Supplier_products api routes
+//supplierProducts api routes
 	Route::get('/supplierProducts', 'SupplierProductController@getAll');
-	Route::get('/suppliers/{suppliers_id}/supplier_products', 'SupplierProductController@index');
-	Route::post('/suppliers/{suppliers_id}/supplier_products/create', 'SupplierProductController@create');
-	Route::get('/suppliers/{suppliers_id}/supplier_products/{id}', 'SupplierProductController@show');
-	Route::post('/suppliers/{suppliers_id}/supplier_products/{id}/edit', 'SupplierProductController@edit');
-	Route::post('/suppliers/{suppliers_id}/supplier_products/{id}/delete', 'SupplierProductController@destroy');
+	Route::get('/suppliers/{suppliers_id}/supplierProducts', 'SupplierProductController@index');
+	Route::post('/suppliers/{suppliers_id}/supplierProducts/create', 'SupplierProductController@create');
+	Route::get('/suppliers/{suppliers_id}/supplierProducts/{id}', 'SupplierProductController@show');
+	Route::post('/suppliers/{suppliers_id}/supplierProducts/{id}/edit', 'SupplierProductController@edit');
+	Route::post('/suppliers/{suppliers_id}/supplierProducts/{id}/delete', 'SupplierProductController@destroy');
 // //Products api routes	
 	Route::get('/products', 'ProductController@index');
 	Route::post('/products/create', 'ProductController@create');
@@ -51,7 +51,10 @@ use Illuminate\Http\Request;
 	Route::post('/order/{order_id}/order_details/{id}/edit', 'OrderDetailController@edit');
 	Route::post('/order/{order_id}/order_details/{id}/delete', 'OrderDetailController@destroy');
 	Route::get('/logout', 'AuthController@logoutApi');
-	// });
+
+	Route::get('/users/{token_id}', 'AuthController@getUser');
+
+	});
 // 
 
 Route::post('login', 'AuthController@login');

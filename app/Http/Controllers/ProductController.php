@@ -16,7 +16,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        // $user = auth()->user();
+        $user = auth()->user();
 
         $Product = Product::get();
 
@@ -24,13 +24,12 @@ class ProductController extends Controller
         return response()->json(["message" => "Product record created successfully",'data'=>$Product], 200);
     }
     public function create(Request $request){
-    // $user = auth()->user();
+    $user = auth()->user();
      $input = $request->all();
         $validator = Validator::make($input, [
             'name' => 'required',
             'description' => 'required',
             'quantity' => 'required',
-            // 'users_id' => 'required'
         ]);
         if ($validator->fails())
           {
@@ -53,15 +52,14 @@ class ProductController extends Controller
             'name' => 'required',
             'description' => 'required',
             'quantity' => 'required',
-            // 'users_id' => 'required'
         ]);
         if ($validator->fails())
           {
             return response()->json(['Validation Error.'=> $validator->errors()],400);
         }
-         // if(auth()->user())
+         if(auth()->user())
          
-            // {
+            {
                if (Product::where('id', $id)->exists())
                 {
                 $Product = Product::where('id', $id)->find($id);
@@ -75,11 +73,11 @@ class ProductController extends Controller
             else{
                  return response()->json(["message" => "Product not found"], 404);
                 }
-        // }
-        //   else{
-            
-        //     // return response()->json(["message" => " Unauthorized "], 401);
-        // }
+        }
+          else{
+            // 
+            return response()->json(["message" => " Unauthorized "], 401);
+        }
     }
 
 
@@ -91,7 +89,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        // $user = auth()->user();
+        $user = auth()->user();
         $Product = Product::find($id);
 
 
@@ -100,7 +98,7 @@ class ProductController extends Controller
         }
          $One_Product = Product::where('id',$id)->get();
 
-       return response()->json(["message" => "Product retrievd successfully", 'data' => $One_Product, ], 200); 
+       return response()->json($One_Product, 200); 
     }
 
 
@@ -122,7 +120,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        // $user=auth()->user();
+        $user=auth()->user();
         $Product = Product::find($id);
 
         if (is_null($Product)) {
@@ -130,21 +128,20 @@ class ProductController extends Controller
         }
         else{
 
-             // if(auth()->user())
-                // {
+             if(auth()->user())
+                {
                     $Product = Product::where('id', $id)->delete();
                     return response()->json(['Message' => 'Products deleted successfully.'],200);
 
      
-            //     }
-            // else
-            // {
-            //     // return response()->json(["message" => "Unauthorized"], 401);
+                }
+            else
+            {
+                return response()->json(["message" => "Unauthorized"], 401);
 
-            // }
+            }
         }
        
-        //*check on it later*
 
     }
 }

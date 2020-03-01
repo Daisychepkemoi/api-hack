@@ -1,60 +1,22 @@
 <template>
     <div>
-        <div class="navig" id="navig" style="background-color:red">
-<h4><router-link :to="{ name: 'home' }">Home</router-link></h4>
+         <div class="navig" id="navig" style="background-color:red">
+            <div style="width:25%; background-color:; float:left;"> <h4><router-link :to="{ name: 'home' }">Home</router-link></h4> 
+              </div>
+              <!-- <div style="width:75%; background-color:green;"><h5><router-link :to="{ name: 'login' }">Login</router-link> <router-link :to="{ name: 'logout' }">logout</router-link></h5> </div> -->
+
+
+
 </div>
-<div class="contain">
-    <div class="sidebar">
-        <!--  <router-link :to="{ name: 'login' }">Login</router-link> |
-            <router-link :to="{ name: 'home' }">Home</router-link> |
-            <router-link :to="{ name: 'products' }">Products</router-link> |
-            <router-link :to="{ name: 'suppliers' }">supplier</router-link> |
-            <router-link :to="{ name: 'supplierProducts' }">supplierProducts</router-link> |
-            <router-link :to="{ name: 'orders' }">Orders</router-link> | -->
-        <ul>
-            <li>
-            <router-link :to="{ name: 'products' }">Products</router-link>
-            </li>
-            <hr>
-             <li>
-            <router-link :to="{ name: 'suppliers' }">supplier</router-link>
-            </li>
-            <hr>
-             <li>
-            <router-link :to="{ name: 'supplierProducts' }">supplierProducts</router-link>
-            </li>
-            <hr>
-              <li>
-            <router-link :to="{ name: 'orders' }">Order</router-link>
-            </li>
-            <hr>
-              <li>
-            <router-link :to="{ name: 'orderDetails' }">Order Details</router-link>
-            </li>
-            <hr>
-           
-            
-        </ul>
-    </div>
-  
-</div>
-        <!-- <h1>Vue Router Demo App</h1>
-
-        <p> -->
-           <!--  <router-link :to="{ name: 'login' }">Login</router-link> |
-            <router-link :to="{ name: 'home' }">Home</router-link> |
-            <router-link :to="{ name: 'products' }">Products</router-link> |
-            <router-link :to="{ name: 'suppliers' }">supplier</router-link> |
-            <router-link :to="{ name: 'supplierProducts' }">supplierProducts</router-link> |
-            <router-link :to="{ name: 'orders' }">Orders</router-link> | -->
 
 
 
 
-        <div class="main">
+
+        <div class="containers">
             <router-view></router-view>
         </div>
-    </div>
+        </div>
 </template>
 <script>
 export default{}
@@ -86,6 +48,10 @@ export default{}
 h4 a{
     color: black;
 }
+h5 a{
+    display: inline-block;
+    float: right;
+}
 ul li {
     list-style: none;
     /*padding: 20px;*/
@@ -96,35 +62,8 @@ li a {
     color: black;
     text-transform: initial;
 }
-.contain{
-    width: 100%;
-    /*height: 100%;*/
-    background-color: ;
-}
-.contain .sidebar{
-    width: 20%;
-    float: left;
-    height: 1000px;
-    background-color: grey;
-}
-.contain .main{
-    height: 600px;
-    width: 80%;
-    background-color: ;
-    float: right;
-}
-.main #products {
-    background-color: ;
-}
-    .main table{
-    width: 60%;
-    background-color: ;
-    font-size: 12px;
-    /*padding: 5%;*/
-    margin-left: 30%;
-    margin-right: 5%;
-    margin-top: 20px;
-  }
+
+
 /*table {
     /*width: 70%;*/
     /*background-color: red;*/

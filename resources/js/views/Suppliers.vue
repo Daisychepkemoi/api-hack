@@ -1,45 +1,74 @@
 <template>
-    <div class="main" id="suppliers">
-        <div class="loading" v-if="loading">
-            Loading...
+    <div class="contain">
+        <div class="sidebar">
+          
+           <ul>
+                <li>
+                    <router-link :to="{ name: 'products' }">Products</router-link>
+                </li>
+                <hr>
+                <li>
+                    <router-link :to="{ name: 'suppliers' }">supplier</router-link>
+                </li>
+                <hr>
+                <li>
+                    <router-link :to="{ name: 'supplierProducts' }">supplierProducts</router-link>
+                </li>
+                <hr>
+                <li>
+                    <router-link :to="{ name: 'orders' }">Order</router-link>
+                </li>
+                <hr>
+                <li>
+                    <router-link :to="{ name: 'orderDetails' }">Order Details</router-link>
+                </li>
+                <hr>
+            </ul>
         </div>
-
-        <div v-if="error" class="error">
-            {{ error }}
+        <div class="main" id="suppliers">
+            <div class="loading" v-if="loading">
+                Loading...
+            </div>
+            <div v-if="error" class="error">
+                <p> {{ error }}</p>
+                <button @click.prevent="fetchData">
+                    Try Again
+                </button>
+            </div>
+            <div v-if="suppliers" class="tables">
+                <div style="width:70%; float:left;">
+                    <H3> suppliers Data</H3>
+                </div>
+                <div style="width:30%; float:right; color:black;"><button class="btn-success" style="float:right; margin-right: 200px;">
+                        <router-link :to="{ name: 'suppliers.create' }">New</router-link>
+                    </button> </div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Created_At</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody v-if="suppliers">
+                        <tr v-for="supplier in suppliers">
+                            <th scope="row"></th>
+                            <td> {{ supplier.name }}</td>
+                            <td>{{ supplier.created_at }}</td>
+                            <!-- <td><button class="btn-info" @click="viewsupplier(supplier.id)"> View </button></td> -->
+                            <td> <router-link :to="`/suppliers/edit/${supplier.id}`"><button class="btn-primary" >Edit</button></router-link> </td>
+                            <td><button class="btn-danger" @click="deletesupplier(supplier.id)">Delete </button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-
-<div v-if="suppliers">	
-  <h4>Supplier Details</h4>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">supplier Name</th>
-      <th scope="col">Date Created</th>
-      <th scope="col">Action</th>
-    </tr>
-  </thead>
-  <tbody v-if="suppliers">
-    <tr v-for="{ name,created_at } in suppliers">
-      <th scope="row"></th>
-      <td> {{ name }}</td>
-      <td>{{ created_at }}</td>
-      <td><button class="btn-info"> View	</button></td>
-      <td><button class="btn-primary"> Edit	</button></td>
-      <td><button class="btn-danger">Delete	</button></td>
-
-    </tr>
-   
-  </tbody>
-</table>
-</div>
-
-
-      </div>
+    </div>
 </template>
 <script>
-import axios from 'axios';
-export default {
+    import axios from 'axios';
+export default{
     data() {
         return {
             loading: false,
@@ -48,23 +77,85 @@ export default {
         };0
     },
     created() {
-        this.fetchData();
+        this.fetchsuppliers();
     },
     methods: {
-        fetchData() {
-            this.error = this.suppliers = null;
-            this.loading = true;
-            axios.get('/api/suppliers').then(response => {
-            		this.loading = false;
-            		this.suppliers = response.data.data;
-            		console.log(response);
-        });
-
-          
+        fetchsuppliers() {
+          const token = sessionStorage.getItem('token')
+      const URL = '/api/suppliers'
+      axios({
+        method: 'get',
+        url: URL,
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
         }
+      })
+        .then(res => {
+          this.suppliers = res.data.data
+        })
+        .catch(err => {
+          // eslint-disable-next-line
+          console.log(err)
+        })
+    },
+          
+                deletesupplier(id) {
+      const token = sessionStorage.getItem('token')
+      const URL = `/api/suppliers/${id}/delete`
+     axios({
+        method: 'post',
+        url: URL,
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
+        }
+      })
+        .then(_ => {
+          this.fetchsuppliers()
+        })
+        .catch(err => {
+          // eslint-disable-next-line
+          console.log(err)
+        })
     }
+  }
+       
 }
 </script>
 <style type="text/css">
+.contain {
+    width: 100%;
+    /*height: 100%;*/
+    background-color: ;
+}
+
+.contain .sidebar {
+    width: 20%;
+    float: left;
+    height: 1000px;
+    background-color: grey;
+}
+
+.contain .main {
+    height: 600px;
+    width: 80%;
+    background-color: ;
+    float: right;
+}
+
+.main .tables {
+    background-color: ;
+}
+
+.tables table {
+    width: 80%;
+    background-color: ;
+    font-size: 12px;
+    /*padding: 5%;*/
+    margin-left: 5%;
+    /*margin-right: 5%;*/
+    margin-top: 20px;
+}
 
 </style>

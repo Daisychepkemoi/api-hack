@@ -1,8 +1,8 @@
 
 <template>
-  <div>
+  <div class="main">
     <h4>Register</h4>
-    <form @submit.prevent="register">
+    <form @submit.prevent="registerUser">
       <label for="name">Name</label>
       <div>
           <input id="name" type="text" v-model="name" required autofocus>
@@ -18,10 +18,10 @@
           <input id="password" type="password" v-model="password" required>
       </div>
 
-      <label for="password-confirm">Confirm Password</label>
-      <div>
-          <input id="password-confirm" type="password" v-model="password_confirmation" required>
-      </div>
+      <!-- <label for="password-confirm">Confirm Password</label> -->
+      <!-- <div> -->
+          <!-- <input id="password-confirm" type="password" v-model="password_confirmation" required> -->
+      <!-- </div> -->
 
       <div>
           <button type="submit">Register</button>
@@ -32,28 +32,40 @@
 
 
 <script>
+import axios from 'axios';
   export default {
-    data(){
-      return {
-        name : "",
-        email : "",
-        password : "",
-        password_confirmation : "",
-        is_admin : null
-      }
-    },
-    methods: {
-      register: function () {
-        let data = {
-          name: this.name,
-          email: this.email,
-          password: this.password,
-          is_admin: this.is_admin
-        }
-        this.$store.dispatch('register', data)
-       .then(() => this.$router.push('/'))
-       .catch(err => console.log(err))
-      }
+  data() {
+    return {
+      name: '',
+      email: '',
+      password: ''
+    }
+  },
+  methods: {
+
+    registerUser() {
+      const { name, email, password } = this
+      const data = { name, email, password }
+      const URL = '/api/register'
+      axios({
+        method: 'post',
+        url: URL,
+        headers: {
+          Accept: 'application/json',
+          Content: 'application/json'
+        },
+        data: data
+      })
+        .then(res => {
+          sessionStorage.setItem('token', res.data.success.token)
+          this.$router.push('/dashboard')
+          console.log(res.data.success.token)
+        })
+        .catch(err => {
+          // eslint-disable-next-line
+          console.log(err)
+        })
     }
   }
+}
 </script>
