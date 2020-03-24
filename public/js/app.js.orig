@@ -1996,7 +1996,11 @@ __webpack_require__.r(__webpack_exports__);
         },
         data: data
       }).then(function (_) {
+<<<<<<< HEAD
         _this.$router.push('/products');
+=======
+        _this.$router.push('/dashboard');
+>>>>>>> 20cba7b4b9cb85712d7a7245c57087f559de3178
       })["catch"](function (err) {
         // eslint-disable-next-line
         console.log(err);
@@ -2541,7 +2545,11 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       var token = sessionStorage.getItem('token');
+<<<<<<< HEAD
       var URL = "/suppliers/supplierProducts/".concat(id, "/delete");
+=======
+      var URL = "/api/suppliers/".concat(id, "/delete");
+>>>>>>> 20cba7b4b9cb85712d7a7245c57087f559de3178
       axios__WEBPACK_IMPORTED_MODULE_0___default()({
         method: 'post',
         url: URL,
@@ -2667,8 +2675,12 @@ __webpack_require__.r(__webpack_exports__);
           Authorization: "Bearer ".concat(token)
         }
       }).then(function (res) {
+<<<<<<< HEAD
         _this.suppliers = res.data.data; // sessionStorage.setItem('supplierid', res.data.data.id)
         // console.log(res.data.data)
+=======
+        _this.suppliers = res.data.data;
+>>>>>>> 20cba7b4b9cb85712d7a7245c57087f559de3178
       })["catch"](function (err) {
         // eslint-disable-next-line
         console.log(err);
@@ -3123,7 +3135,11 @@ __webpack_require__.r(__webpack_exports__);
         // eslint-disable-next-line
         alert('Wrong email/password'); // eslint-disable-next-line
 
+<<<<<<< HEAD
         console.log(err.data);
+=======
+        console.log(err);
+>>>>>>> 20cba7b4b9cb85712d7a7245c57087f559de3178
       });
     }
   }
@@ -3174,6 +3190,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+<<<<<<< HEAD
+=======
+//
+>>>>>>> 20cba7b4b9cb85712d7a7245c57087f559de3178
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -3212,6 +3232,7 @@ __webpack_require__.r(__webpack_exports__);
         console.log(res.data.success.token);
       })["catch"](function (err) {
         // eslint-disable-next-line
+<<<<<<< HEAD
         console.log(err.res);
       });
     }
@@ -3359,6 +3380,8 @@ __webpack_require__.r(__webpack_exports__);
         _this2.fetchProduct();
       })["catch"](function (err) {
         // eslint-disable-next-line
+=======
+>>>>>>> 20cba7b4b9cb85712d7a7245c57087f559de3178
         console.log(err);
       });
     }
@@ -8065,7 +8088,11 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
+<<<<<<< HEAD
 exports.push([module.i, "\n.contain {\n    width: 100%;\n    /*height: 100%;*/\n    background-color: ;\n}\n.contain .sidebar {\n    width: 20%;\n    float: left;\n    height: 1000px;\n    background-color: grey;\n}\n.contain .main {\n    height: 600px;\n    width: 80%;\n    background-color: ;\n    float: right;\n}\n.main .tables {\n    background-color: ;\n}\n.tables table {\n    width: 80%;\n    background-color: ;\n    font-size: 12px;\n    /*padding: 5%;*/\n    margin-left: 5%;\n    /*margin-right: 5%;*/\n    margin-top: 20px;\n}\n\n", ""]);
+=======
+exports.push([module.i, "\n.contain {\r\n    width: 100%;\r\n    /*height: 100%;*/\r\n    background-color: ;\n}\n.contain .sidebar {\r\n    width: 20%;\r\n    float: left;\r\n    height: 1000px;\r\n    background-color: grey;\n}\n.contain .main {\r\n    height: 600px;\r\n    width: 80%;\r\n    background-color: ;\r\n    float: right;\n}\n.main .tables {\r\n    background-color: ;\n}\n.tables table {\r\n    width: 80%;\r\n    background-color: ;\r\n    font-size: 12px;\r\n    /*padding: 5%;*/\r\n    margin-left: 5%;\r\n    /*margin-right: 5%;*/\r\n    margin-top: 20px;\n}\r\n\r\n", ""]);
+>>>>>>> 20cba7b4b9cb85712d7a7245c57087f559de3178
 
 // exports
 
@@ -8084,7 +8111,11 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
+<<<<<<< HEAD
 exports.push([module.i, "\n.contain {\n    width: 100%;\n    /*height: 100%;*/\n    background-color: ;\n}\n.contain .sidebar {\n    width: 20%;\n    float: left;\n    height: 1000px;\n    background-color: grey;\n}\n.contain .main {\n    height: 600px;\n    width: 80%;\n    background-color: ;\n    float: right;\n}\n.main table{\n    background-color: ;\n    font-size:12px;\n}\n.tables table {\n    width: 80%;\n    background-color: ;\n    font-size: 12px;\n    /*padding: 5%;*/\n    margin-left: 5%;\n    /*margin-right: 5%;*/\n    margin-top: 20px;\n}\n\n", ""]);
+=======
+exports.push([module.i, "\n.contain {\r\n    width: 100%;\r\n    /*height: 100%;*/\r\n    background-color: ;\n}\n.contain .sidebar {\r\n    width: 20%;\r\n    float: left;\r\n    height: 1000px;\r\n    background-color: grey;\n}\n.contain .main {\r\n    height: 600px;\r\n    width: 80%;\r\n    background-color: ;\r\n    float: right;\n}\n.main table{\r\n    background-color: ;\r\n    font-size:12px;\n}\n.tables table {\r\n    width: 80%;\r\n    background-color: ;\r\n    font-size: 12px;\r\n    /*padding: 5%;*/\r\n    margin-left: 5%;\r\n    /*margin-right: 5%;*/\r\n    margin-top: 20px;\n}\r\n\r\n", ""]);
+>>>>>>> 20cba7b4b9cb85712d7a7245c57087f559de3178
 
 // exports
 
@@ -8103,7 +8134,11 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
+<<<<<<< HEAD
 exports.push([module.i, "\n.contain {\n    width: 100%;\n    /*height: 100%;*/\n    background-color: ;\n}\n.contain .sidebar {\n    width: 20%;\n    float: left;\n    height: 1000px;\n    background-color: grey;\n}\n.contain .main {\n    height: 600px;\n    width: 80%;\n    background-color: ;\n    float: right;\n}\n.main table{\n    background-color: ;\n    font-size:12px;\n}\n.tables table {\n    width: 80%;\n    background-color: ;\n    font-size: 12px;\n    /*padding: 5%;*/\n    margin-left: 5%;\n    /*margin-right: 5%;*/\n    margin-top: 20px;\n}\n\n", ""]);
+=======
+exports.push([module.i, "\n.contain {\r\n    width: 100%;\r\n    /*height: 100%;*/\r\n    background-color: ;\n}\n.contain .sidebar {\r\n    width: 20%;\r\n    float: left;\r\n    height: 1000px;\r\n    background-color: grey;\n}\n.contain .main {\r\n    height: 600px;\r\n    width: 80%;\r\n    background-color: ;\r\n    float: right;\n}\n.main table{\r\n    background-color: ;\r\n    font-size:12px;\n}\n.tables table {\r\n    width: 80%;\r\n    background-color: ;\r\n    font-size: 12px;\r\n    /*padding: 5%;*/\r\n    margin-left: 5%;\r\n    /*margin-right: 5%;*/\r\n    margin-top: 20px;\n}\r\n\r\n", ""]);
+>>>>>>> 20cba7b4b9cb85712d7a7245c57087f559de3178
 
 // exports
 
@@ -8122,7 +8157,11 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
+<<<<<<< HEAD
 exports.push([module.i, "\n.contain {\n    width: 100%;\n    /*height: 100%;*/\n    background-color: ;\n}\n.contain .sidebar {\n    width: 20%;\n    float: left;\n    height: 1000px;\n    background-color: grey;\n}\n.contain .main {\n    height: 600px;\n    width: 80%;\n    background-color: ;\n    float: right;\n}\n.main .tables {\n    background-color: ;\n}\n.tables table {\n    width: 80%;\n    background-color: ;\n    font-size: 12px;\n    /*padding: 5%;*/\n    margin-left: 5%;\n    /*margin-right: 5%;*/\n    margin-top: 20px;\n}\n\n", ""]);
+=======
+exports.push([module.i, "\n.contain {\r\n    width: 100%;\r\n    /*height: 100%;*/\r\n    background-color: ;\n}\n.contain .sidebar {\r\n    width: 20%;\r\n    float: left;\r\n    height: 1000px;\r\n    background-color: grey;\n}\n.contain .main {\r\n    height: 600px;\r\n    width: 80%;\r\n    background-color: ;\r\n    float: right;\n}\n.main .tables {\r\n    background-color: ;\n}\n.tables table {\r\n    width: 80%;\r\n    background-color: ;\r\n    font-size: 12px;\r\n    /*padding: 5%;*/\r\n    margin-left: 5%;\r\n    /*margin-right: 5%;*/\r\n    margin-top: 20px;\n}\r\n\r\n", ""]);
+>>>>>>> 20cba7b4b9cb85712d7a7245c57087f559de3178
 
 // exports
 
@@ -8141,7 +8180,11 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
+<<<<<<< HEAD
 exports.push([module.i, "\n.contain {\n    width: 100%;\n    /*height: 100%;*/\n    background-color: ;\n}\n.contain .sidebar {\n    width: 20%;\n    float: left;\n    height: 1000px;\n    background-color: grey;\n}\n.contain .main {\n    height: 600px;\n    width: 80%;\n    background-color: ;\n    float: right;\n}\n.main .tables {\n    background-color: ;\n}\n.tables table {\n    width: 80%;\n    background-color: ;\n    font-size: 12px;\n    /*padding: 5%;*/\n    margin-left: 5%;\n    /*margin-right: 5%;*/\n    margin-top: 20px;\n}\n\n", ""]);
+=======
+exports.push([module.i, "\n.contain {\r\n    width: 100%;\r\n    /*height: 100%;*/\r\n    background-color: ;\n}\n.contain .sidebar {\r\n    width: 20%;\r\n    float: left;\r\n    height: 1000px;\r\n    background-color: grey;\n}\n.contain .main {\r\n    height: 600px;\r\n    width: 80%;\r\n    background-color: ;\r\n    float: right;\n}\n.main .tables {\r\n    background-color: ;\n}\n.tables table {\r\n    width: 80%;\r\n    background-color: ;\r\n    font-size: 12px;\r\n    /*padding: 5%;*/\r\n    margin-left: 5%;\r\n    /*margin-right: 5%;*/\r\n    margin-top: 20px;\n}\r\n\r\n", ""]);
+>>>>>>> 20cba7b4b9cb85712d7a7245c57087f559de3178
 
 // exports
 
@@ -8160,7 +8203,11 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
+<<<<<<< HEAD
 exports.push([module.i, "\n.contain {\n    width: 100%;\n    /*height: 100%;*/\n    background-color: ;\n}\n.contain .sidebar {\n    width: 20%;\n    float: left;\n    height: 1000px;\n    background-color: grey;\n}\n.contain .main {\n    height: 600px;\n    width: 80%;\n    background-color: ;\n    float: right;\n}\n.main .tables {\n    background-color: ;\n}\n.tables table {\n    width: 80%;\n    background-color: ;\n    font-size: 12px;\n    /*padding: 5%;*/\n    margin-left: 5%;\n    /*margin-right: 5%;*/\n    margin-top: 20px;\n}\n\n", ""]);
+=======
+exports.push([module.i, "\n.contain {\r\n    width: 100%;\r\n    /*height: 100%;*/\r\n    background-color: ;\n}\n.contain .sidebar {\r\n    width: 20%;\r\n    float: left;\r\n    height: 1000px;\r\n    background-color: grey;\n}\n.contain .main {\r\n    height: 600px;\r\n    width: 80%;\r\n    background-color: ;\r\n    float: right;\n}\n.main .tables {\r\n    background-color: ;\n}\n.tables table {\r\n    width: 80%;\r\n    background-color: ;\r\n    font-size: 12px;\r\n    /*padding: 5%;*/\r\n    margin-left: 5%;\r\n    /*margin-right: 5%;*/\r\n    margin-top: 20px;\n}\r\n\r\n", ""]);
+>>>>>>> 20cba7b4b9cb85712d7a7245c57087f559de3178
 
 // exports
 
@@ -8179,7 +8226,11 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 exports.i(__webpack_require__(/*! -!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!bootstrap/dist/css/bootstrap.css */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/bootstrap/dist/css/bootstrap.css"), "");
 
 // module
+<<<<<<< HEAD
 exports.push([module.i, "\n#app {\n  font-family: 'Avenir', Helvetica, Arial, sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  text-align: center;\n  color: #2c3e50;\n  /*margin-top: 60px;*/\n}\n.navig {\n    margin-top: 0px !important;\n    height: 75px;\n    background-color: black;\n}\n.navig h4{\n    text-align: left;\n    margin-left: 100px;\n    color: black ! important;\n    text-transform: uppercase;\n    font-size: 30px;\n    padding-top: 20px;\n}\nh4 a{\n    color: black;\n}\nh5 a{\n    display: inline-block;\n    float: right;\n}\nul li {\n    list-style: none;\n    /*padding: 20px;*/\n    color: black;\n}\nli a {\n    color: black;\n    text-transform: initial;\n}\n\n\n/*table {\n    /*width: 70%;*/\n    /*background-color: red;*/\n    /*margin-left: 30%;*/\n/*}*/\n", ""]);
+=======
+exports.push([module.i, "\n#app {\r\n  font-family: 'Avenir', Helvetica, Arial, sans-serif;\r\n  -webkit-font-smoothing: antialiased;\r\n  -moz-osx-font-smoothing: grayscale;\r\n  text-align: center;\r\n  color: #2c3e50;\r\n  /*margin-top: 60px;*/\n}\n.navig {\r\n    margin-top: 0px !important;\r\n    height: 75px;\r\n    background-color: black;\n}\n.navig h4{\r\n    text-align: left;\r\n    margin-left: 100px;\r\n    color: black ! important;\r\n    text-transform: uppercase;\r\n    font-size: 30px;\r\n    padding-top: 20px;\n}\nh4 a{\r\n    color: black;\n}\nh5 a{\r\n    display: inline-block;\r\n    float: right;\n}\nul li {\r\n    list-style: none;\r\n    /*padding: 20px;*/\r\n    color: black;\n}\nli a {\r\n    color: black;\r\n    text-transform: initial;\n}\r\n\r\n\r\n/*table {\r\n    /*width: 70%;*/\r\n    /*background-color: red;*/\r\n    /*margin-left: 30%;*/\r\n/*}*/\r\n", ""]);
+>>>>>>> 20cba7b4b9cb85712d7a7245c57087f559de3178
 
 // exports
 
@@ -8198,7 +8249,11 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
+<<<<<<< HEAD
 exports.push([module.i, "\n.contain {\n    width: 100%;\n    /*height: 100%;*/\n    background-color: ;\n}\n.contain .sidebar {\n    width: 20%;\n    float: left;\n    height: 1000px;\n    background-color: grey;\n}\n.contain .main {\n    height: 600px;\n    width: 80%;\n    background-color: ;\n    float: right;\n}\n.main .tables {\n    background-color: ;\n}\n.tables table {\n    width: 80%;\n    background-color: ;\n    font-size: 12px;\n    /*padding: 5%;*/\n    margin-left: 5%;\n    /*margin-right: 5%;*/\n    margin-top: 20px;\n}\n\n", ""]);
+=======
+exports.push([module.i, "\n.contain {\r\n    width: 100%;\r\n    /*height: 100%;*/\r\n    background-color: ;\n}\n.contain .sidebar {\r\n    width: 20%;\r\n    float: left;\r\n    height: 1000px;\r\n    background-color: grey;\n}\n.contain .main {\r\n    height: 600px;\r\n    width: 80%;\r\n    background-color: ;\r\n    float: right;\n}\n.main .tables {\r\n    background-color: ;\n}\n.tables table {\r\n    width: 80%;\r\n    background-color: ;\r\n    font-size: 12px;\r\n    /*padding: 5%;*/\r\n    margin-left: 5%;\r\n    /*margin-right: 5%;*/\r\n    margin-top: 20px;\n}\r\n\r\n", ""]);
+>>>>>>> 20cba7b4b9cb85712d7a7245c57087f559de3178
 
 // exports
 
@@ -8217,6 +8272,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 exports.i(__webpack_require__(/*! -!../../../node_modules/css-loader??ref--6-1!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!bootstrap/dist/css/bootstrap.css */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/bootstrap/dist/css/bootstrap.css"), "");
 
 // module
+<<<<<<< HEAD
 exports.push([module.i, "\n#app {\n  font-family: 'Avenir', Helvetica, Arial, sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  text-align: center;\n  color: #2c3e50;\n  /*margin-top: 60px;*/\n}\n.navig {\n    margin-top: 0px !important;\n    height: 75px;\n    background-color: black;\n}\n.navig h4{\n    text-align: left;\n    margin-left: 100px;\n    color: black ! important;\n    text-transform: uppercase;\n    font-size: 30px;\n    padding-top: 20px;\n}\nh4 a{\n    color: black;\n}\nh5 a{\n    display: inline-block;\n    float: right;\n}\nul li {\n    list-style: none;\n    /*padding: 20px;*/\n    color: black;\n}\nli a {\n    color: black;\n    text-transform: initial;\n}\n.contain{\n    width: 100%;\n    /*height: 100%;*/\n    background-color: ;\n}\n.contain .sidebar{\n    width: 20%;\n    float: left;\n    height: 1000px;\n    background-color: grey;\n}\n.contain .main{\n    height: 600px;\n    width: 80%;\n    background-color: ;\n    float: right;\n}\n\n\n/*table {\n    /*width: 70%;*/\n    /*background-color: red;*/\n    /*margin-left: 30%;*/\n/*}*/\n", ""]);
 
 // exports
@@ -8237,6 +8293,9 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 // module
 exports.push([module.i, "\n.contain {\n    width: 100%;\n    /*height: 100%;*/\n    background-color: ;\n}\n.contain .sidebar {\n    width: 20%;\n    float: left;\n    height: 1000px;\n    background-color: grey;\n}\n.contain .main {\n    height: 600px;\n    width: 80%;\n    background-color: ;\n    float: right;\n}\n.main .tables {\n    background-color: ;\n}\n.tables table {\n    width: 80%;\n    background-color: ;\n    font-size: 12px;\n    /*padding: 5%;*/\n    margin-left: 5%;\n    /*margin-right: 5%;*/\n    margin-top: 20px;\n}\n\n", ""]);
+=======
+exports.push([module.i, "\n#app {\r\n  font-family: 'Avenir', Helvetica, Arial, sans-serif;\r\n  -webkit-font-smoothing: antialiased;\r\n  -moz-osx-font-smoothing: grayscale;\r\n  text-align: center;\r\n  color: #2c3e50;\r\n  /*margin-top: 60px;*/\n}\n.navig {\r\n    margin-top: 0px !important;\r\n    height: 75px;\r\n    background-color: black;\n}\n.navig h4{\r\n    text-align: left;\r\n    margin-left: 100px;\r\n    color: black ! important;\r\n    text-transform: uppercase;\r\n    font-size: 30px;\r\n    padding-top: 20px;\n}\nh4 a{\r\n    color: black;\n}\nh5 a{\r\n    display: inline-block;\r\n    float: right;\n}\nul li {\r\n    list-style: none;\r\n    /*padding: 20px;*/\r\n    color: black;\n}\nli a {\r\n    color: black;\r\n    text-transform: initial;\n}\n.contain{\r\n    width: 100%;\r\n    /*height: 100%;*/\r\n    background-color: ;\n}\n.contain .sidebar{\r\n    width: 20%;\r\n    float: left;\r\n    height: 1000px;\r\n    background-color: grey;\n}\n.contain .main{\r\n    height: 600px;\r\n    width: 80%;\r\n    background-color: ;\r\n    float: right;\n}\r\n\r\n\r\n/*table {\r\n    /*width: 70%;*/\r\n    /*background-color: red;*/\r\n    /*margin-left: 30%;*/\r\n/*}*/\r\n", ""]);
+>>>>>>> 20cba7b4b9cb85712d7a7245c57087f559de3178
 
 // exports
 
@@ -22233,6 +22292,7 @@ if(false) {}
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/supplierDetails.vue?vue&type=style&index=0&lang=css&":
 /*!********************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/supplierDetails.vue?vue&type=style&index=0&lang=css& ***!
@@ -22263,6 +22323,8 @@ if(false) {}
 
 /***/ }),
 
+=======
+>>>>>>> 20cba7b4b9cb85712d7a7245c57087f559de3178
 /***/ "./node_modules/style-loader/lib/addStyles.js":
 /*!****************************************************!*\
   !*** ./node_modules/style-loader/lib/addStyles.js ***!
@@ -23042,6 +23104,8 @@ render._withStripped = true
 
 /***/ }),
 
+<<<<<<< HEAD
+=======
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Home.vue?vue&type=template&id=63cd6604&":
 /*!**************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Home.vue?vue&type=template&id=63cd6604& ***!
@@ -23089,6 +23153,7 @@ render._withStripped = true
 
 /***/ }),
 
+>>>>>>> 20cba7b4b9cb85712d7a7245c57087f559de3178
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/Order.vue?vue&type=template&id=621856bf&":
 /*!***************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/Order.vue?vue&type=template&id=621856bf& ***!
@@ -23743,7 +23808,11 @@ var render = function() {
         ),
         _vm._v(" "),
         _c("hr"),
+<<<<<<< HEAD
         _vm._v("-\n            "),
+=======
+        _vm._v(" "),
+>>>>>>> 20cba7b4b9cb85712d7a7245c57087f559de3178
         _c(
           "li",
           [
@@ -23825,7 +23894,11 @@ var render = function() {
             _c(
               "div",
               { staticStyle: { width: "70%", float: "left" } },
+<<<<<<< HEAD
               [_c("H3", [_vm._v(" suppliers Products Data")])],
+=======
+              [_c("H3", [_vm._v(" suppliers Data")])],
+>>>>>>> 20cba7b4b9cb85712d7a7245c57087f559de3178
               1
             ),
             _vm._v(" "),
@@ -23869,6 +23942,7 @@ var render = function() {
                         _vm._v(" "),
                         _c("td", [_vm._v(_vm._s(supplierproduct.created_at))]),
                         _vm._v(" "),
+<<<<<<< HEAD
                         _c("td", [
                           _c(
                             "button",
@@ -23884,6 +23958,8 @@ var render = function() {
                           )
                         ]),
                         _vm._v(" "),
+=======
+>>>>>>> 20cba7b4b9cb85712d7a7245c57087f559de3178
                         _c(
                           "td",
                           [
@@ -24116,6 +24192,7 @@ var render = function() {
                             _c(
                               "router-link",
                               {
+<<<<<<< HEAD
                                 attrs: {
                                   to:
                                     "/suppliers/" +
@@ -24139,6 +24216,8 @@ var render = function() {
                             _c(
                               "router-link",
                               {
+=======
+>>>>>>> 20cba7b4b9cb85712d7a7245c57087f559de3178
                                 attrs: { to: "/suppliers/edit/" + supplier.id }
                               },
                               [
@@ -24649,6 +24728,7 @@ render._withStripped = true
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/home.vue?vue&type=template&id=6b822e44&":
 /*!**************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/home.vue?vue&type=template&id=6b822e44& ***!
@@ -24696,6 +24776,8 @@ render._withStripped = true
 
 /***/ }),
 
+=======
+>>>>>>> 20cba7b4b9cb85712d7a7245c57087f559de3178
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/login.vue?vue&type=template&id=c8f9cd0c&":
 /*!***************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/login.vue?vue&type=template&id=c8f9cd0c& ***!
@@ -24929,6 +25011,7 @@ render._withStripped = true
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/supplierDetails.vue?vue&type=template&id=72d4fb27&":
 /*!*************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/supplierDetails.vue?vue&type=template&id=72d4fb27& ***!
@@ -25162,6 +25245,8 @@ render._withStripped = true
 
 /***/ }),
 
+=======
+>>>>>>> 20cba7b4b9cb85712d7a7245c57087f559de3178
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/views/updateProducts.vue?vue&type=template&id=474e24e8&":
 /*!************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/views/updateProducts.vue?vue&type=template&id=474e24e8& ***!
@@ -40458,11 +40543,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
 /* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(bootstrap__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _views_app__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./views/app */ "./resources/js/views/app.vue");
+<<<<<<< HEAD
 /* harmony import */ var _views_home__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./views/home */ "./resources/js/views/home.vue");
+=======
+/* harmony import */ var _views_Home__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./views/Home */ "./resources/js/views/Home.vue");
+>>>>>>> 20cba7b4b9cb85712d7a7245c57087f559de3178
 /* harmony import */ var _views_Products__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./views/Products */ "./resources/js/views/Products.vue");
 /* harmony import */ var _views_CreateProduct__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./views/CreateProduct */ "./resources/js/views/CreateProduct.vue");
 /* harmony import */ var _views_updateProducts__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./views/updateProducts */ "./resources/js/views/updateProducts.vue");
 /* harmony import */ var _views_Suppliers__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./views/Suppliers */ "./resources/js/views/Suppliers.vue");
+<<<<<<< HEAD
 /* harmony import */ var _views_supplierDetails__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./views/supplierDetails */ "./resources/js/views/supplierDetails.vue");
 /* harmony import */ var _views_createSupplier__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./views/createSupplier */ "./resources/js/views/createSupplier.vue");
 /* harmony import */ var _views_UpdateSupplier__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./views/UpdateSupplier */ "./resources/js/views/UpdateSupplier.vue");
@@ -40472,6 +40562,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _views_login__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./views/login */ "./resources/js/views/login.vue");
 /* harmony import */ var _views_register__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./views/register */ "./resources/js/views/register.vue");
 /* harmony import */ var _views_dashboard__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./views/dashboard */ "./resources/js/views/dashboard.vue");
+=======
+/* harmony import */ var _views_createSupplier__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./views/createSupplier */ "./resources/js/views/createSupplier.vue");
+/* harmony import */ var _views_UpdateSupplier__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./views/UpdateSupplier */ "./resources/js/views/UpdateSupplier.vue");
+/* harmony import */ var _views_SupplierProducts__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./views/SupplierProducts */ "./resources/js/views/SupplierProducts.vue");
+/* harmony import */ var _views_Order__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./views/Order */ "./resources/js/views/Order.vue");
+/* harmony import */ var _views_OrderDetails__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./views/OrderDetails */ "./resources/js/views/OrderDetails.vue");
+/* harmony import */ var _views_login__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./views/login */ "./resources/js/views/login.vue");
+/* harmony import */ var _views_register__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./views/register */ "./resources/js/views/register.vue");
+/* harmony import */ var _views_dashboard__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./views/dashboard */ "./resources/js/views/dashboard.vue");
+>>>>>>> 20cba7b4b9cb85712d7a7245c57087f559de3178
 // require('./bootstrap');
 
 
@@ -40491,12 +40591,16 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 20cba7b4b9cb85712d7a7245c57087f559de3178
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: 'history',
   routes: [{
     path: '/',
     name: 'home',
+<<<<<<< HEAD
     component: _views_home__WEBPACK_IMPORTED_MODULE_4__["default"]
   }, {
     path: '/api/login',
@@ -40510,6 +40614,21 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/dashboard',
     name: 'dashboard',
     component: _views_dashboard__WEBPACK_IMPORTED_MODULE_17__["default"]
+=======
+    component: _views_Home__WEBPACK_IMPORTED_MODULE_4__["default"]
+  }, {
+    path: '/api/login',
+    name: 'login',
+    component: _views_login__WEBPACK_IMPORTED_MODULE_14__["default"]
+  }, {
+    path: '/api/register',
+    name: 'register',
+    component: _views_register__WEBPACK_IMPORTED_MODULE_15__["default"]
+  }, {
+    path: '/dashboard',
+    name: 'dashboard',
+    component: _views_dashboard__WEBPACK_IMPORTED_MODULE_16__["default"]
+>>>>>>> 20cba7b4b9cb85712d7a7245c57087f559de3178
   }, {
     path: '/products',
     name: 'products',
@@ -40527,6 +40646,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'suppliers',
     component: _views_Suppliers__WEBPACK_IMPORTED_MODULE_8__["default"]
   }, {
+<<<<<<< HEAD
     path: '/suppliers/:id/supplierproducts',
     name: 'suppliers.products',
     component: _views_supplierDetails__WEBPACK_IMPORTED_MODULE_9__["default"]
@@ -40550,6 +40670,27 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/orderdetails',
     name: 'orderDetails',
     component: _views_OrderDetails__WEBPACK_IMPORTED_MODULE_14__["default"]
+=======
+    path: '/suppliers/create',
+    name: 'suppliers.create',
+    component: _views_createSupplier__WEBPACK_IMPORTED_MODULE_9__["default"]
+  }, {
+    path: '/suppliers/edit/:id',
+    name: 'suppliers.edit',
+    component: _views_UpdateSupplier__WEBPACK_IMPORTED_MODULE_10__["default"]
+  }, {
+    path: '/supplierProducts',
+    name: 'supplierProducts',
+    component: _views_SupplierProducts__WEBPACK_IMPORTED_MODULE_11__["default"]
+  }, {
+    path: '/orders',
+    name: 'orders',
+    component: _views_Order__WEBPACK_IMPORTED_MODULE_12__["default"]
+  }, {
+    path: '/orderdetails',
+    name: 'orderDetails',
+    component: _views_OrderDetails__WEBPACK_IMPORTED_MODULE_13__["default"]
+>>>>>>> 20cba7b4b9cb85712d7a7245c57087f559de3178
   }]
 });
 var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
@@ -40649,6 +40790,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+<<<<<<< HEAD
+=======
 /***/ "./resources/js/views/Home.vue":
 /*!*************************************!*\
   !*** ./resources/js/views/Home.vue ***!
@@ -40702,6 +40845,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+>>>>>>> 20cba7b4b9cb85712d7a7245c57087f559de3178
 /***/ "./resources/js/views/Order.vue":
 /*!**************************************!*\
   !*** ./resources/js/views/Order.vue ***!
@@ -41467,6 +41611,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./resources/js/views/home.vue":
 /*!*************************************!*\
   !*** ./resources/js/views/home.vue ***!
@@ -41520,6 +41665,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+=======
+>>>>>>> 20cba7b4b9cb85712d7a7245c57087f559de3178
 /***/ "./resources/js/views/login.vue":
 /*!**************************************!*\
   !*** ./resources/js/views/login.vue ***!
@@ -41658,6 +41805,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./resources/js/views/supplierDetails.vue":
 /*!************************************************!*\
   !*** ./resources/js/views/supplierDetails.vue ***!
@@ -41745,6 +41893,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+=======
+>>>>>>> 20cba7b4b9cb85712d7a7245c57087f559de3178
 /***/ "./resources/js/views/updateProducts.vue":
 /*!***********************************************!*\
   !*** ./resources/js/views/updateProducts.vue ***!
@@ -41832,8 +41982,13 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! /home/daisy/Downloads/larvuejs/resources/js/app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! /home/daisy/Downloads/larvuejs/resources/sass/app.scss */"./resources/sass/app.scss");
+=======
+__webpack_require__(/*! C:\xamppps\htdocs\chall-api\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xamppps\htdocs\chall-api\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> 20cba7b4b9cb85712d7a7245c57087f559de3178
 
 
 /***/ })

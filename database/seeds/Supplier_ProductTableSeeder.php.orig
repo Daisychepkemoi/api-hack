@@ -1,0 +1,22 @@
+<?php
+
+use Illuminate\Database\Seeder;
+
+class Supplier_ProductTableSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        //
+<<<<<<< HEAD
+                 $supplier_product=factory(App\Supplier_Product::class, 30)->create();
+=======
+                 $supplier_product=factory(App\Supplier_Product::class, 5)->create();
+>>>>>>> 20cba7b4b9cb85712d7a7245c57087f559de3178
+
+    }
+}
