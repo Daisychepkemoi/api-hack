@@ -1,30 +1,6 @@
 <template>
     <div class="contain">
-        <div class="sidebar">
-          
-           <ul>
-                <li>
-                    <router-link :to="{ name: 'products' }">Products</router-link>
-                </li>
-                <hr>
-                <li>
-                    <router-link :to="{ name: 'suppliers' }">supplier</router-link>
-                </li>
-                <hr>
-                <li>
-                    <router-link :to="{ name: 'supplierProducts' }">supplierProducts</router-link>
-                </li>
-                <hr>
-                <li>
-                    <router-link :to="{ name: 'orders' }">Order</router-link>
-                </li>
-                <hr>
-                <li>
-                    <router-link :to="{ name: 'orderDetails' }">Order Details</router-link>
-                </li>
-                <hr>
-            </ul>
-        </div>
+       <Navigation></Navigation>
         <div class="main" id="suppliers">
             <div class="loading" v-if="loading">
                 Loading...
@@ -56,7 +32,7 @@
                             <th scope="row"></th>
                             <td> {{ supplier.name }}</td>
                             <td>{{ supplier.created_at }}</td>
-                            <td><router-link :to="`/suppliers/${supplier.id}/supplierproducts`"><button class="btn-info" > View Details</button></router-link> </td>
+                            <td><router-link :to="`/suppliers/${supplier.id}/supplierproducts`"><button class="btn-info" > View Products</button></router-link> </td>
                             <td> <router-link :to="`/suppliers/edit/${supplier.id}`"><button class="btn-primary" >Edit</button></router-link> </td>
                             <td><button class="btn-danger" @click="deletesupplier(supplier.id)">Delete </button></td>
                         </tr>
@@ -68,7 +44,12 @@
 </template>
 <script>
     import axios from 'axios';
+    import Navigation from './navigation';
+
 export default{
+      components: { 
+  'Navigation': Navigation 
+},
     data() {
         return {
             loading: false,

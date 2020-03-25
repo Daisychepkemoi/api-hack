@@ -18,6 +18,7 @@ import UpdateSupplier from './views/UpdateSupplier'
 import SupplierProducts from './views/SupplierProducts'
 import Order from './views/Order'
 import OrderDetails from './views/OrderDetails'
+// import orderDeta
 import Login from './views/login'
 import Register from './views/register'
 import Dashboard from './views/dashboard'
@@ -91,7 +92,7 @@ const router = new VueRouter({
             component: Order
         },
         {
-            path: '/orderdetails',
+            path: '/order/:id/orderdetails',
             name: 'orderDetails',
             component: OrderDetails
         },

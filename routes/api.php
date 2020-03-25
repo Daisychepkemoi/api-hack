@@ -45,11 +45,11 @@ Route::group(['middleware' => 'auth:api'], function(){
 	Route::post('/orders/{id}/delete', 'OrderController@destroy');
 // ////Orders_details api routes
 	Route::get('/orderDetails', 'OrderDetailController@getAll');
-	Route::get('/order/{order_id}/order_details', 'OrderDetailController@index');
-	Route::post('/order/{order_id}/order_details/create', 'OrderDetailController@create');
-	Route::get('/order/{order_id}/order_details/{id}', 'OrderDetailController@show');
-	Route::post('/order/{order_id}/order_details/{id}/edit', 'OrderDetailController@edit');
-	Route::post('/order/{order_id}/order_details/{id}/delete', 'OrderDetailController@destroy');
+	Route::get('/order/{order_id}/orderdetails', 'OrderDetailController@index');
+	Route::post('/order/{order_id}/orderdetails/create', 'OrderDetailController@create');
+	Route::get('/order/{order_id}/orderdetails/{id}', 'OrderDetailController@show');
+	Route::post('/order/{order_id}/orderdetails/{id}/edit', 'OrderDetailController@edit');
+	Route::post('/order/{order_id}/orderdetails/{id}/delete', 'OrderDetailController@destroy');
 	Route::get('/logout', 'AuthController@logoutApi');
 
 	Route::get('/users/{token_id}', 'AuthController@getUser');

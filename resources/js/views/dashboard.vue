@@ -1,50 +1,12 @@
 <template>
-    <div>
-              <!-- <div style="width:75%; background-color:green;"> -->
-                <!-- <H5> <router-link :to="{ name: 'logout' }">logout</router-link></h5> </div> -->
+   
              
 
 <div class="contain">
-    <div class="sidebar">
-        <!--  <router-link :to="{ name: 'login' }">Login</router-link> |
-            <router-link :to="{ name: 'home' }">Home</router-link> |
-            <router-link :to="{ name: 'products' }">Products</router-link> |
-            <router-link :to="{ name: 'suppliers' }">supplier</router-link> |
-            <router-link :to="{ name: 'supplierProducts' }">supplierProducts</router-link> |
-            <router-link :to="{ name: 'orders' }">Orders</router-link> | -->
-        <ul>
-            <li>
-            <router-link :to="{ name: 'products' }">Products</router-link>
-            </li>
-            <hr>
-             <li>
-            <router-link :to="{ name: 'suppliers' }">supplier</router-link>
-            </li>
-            <hr>
-             <li>
-            <router-link :to="{ name: 'supplierProducts' }">supplierProducts</router-link>
-            </li>
-            <hr>
-              <li>
-            <router-link :to="{ name: 'orders' }">Order</router-link>
-            </li>
-            <hr>
-              <li>
-            <router-link :to="{ name: 'orderDetails' }">Order Details</router-link>
-            </li>
-            <hr>
-           
-            
-        </ul>
-    </div>
-  
-</div>
+   
+<Navigation></Navigation>
 
-
-
-
-
-        <div class="main">
+ <div class="main">
           <h4>  Welcome, {{ name }}</h4>
             <router-view></router-view>
         </div>
@@ -52,9 +14,11 @@
 </template>
 <script>
 import axios from 'axios';
-
+import Navigation from './navigation';
 export default {
-
+  components: { 
+  'Navigation': Navigation 
+},
   data() {
     return {
       name: ''

@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Order_Detail;
 use Illuminate\Http\Request;
 use Validator;
-
+use App\Order;
+use DB;
 class OrderDetailController extends Controller
 {
     public function getAll()
@@ -21,9 +22,20 @@ class OrderDetailController extends Controller
     {
         // $user = auth()->user();
 
-        $Order_Detail = Order_Detail::where('orders_id',$order_id)->get();
+        $orderName = Order::where('id',$order_id)->first();
+         // $supplier = Supplier::where('id',$suppliers_id)->first();
+         $Order_Details = DB::table('order__details')
+                         ->join('orders','orders.id','=', 'order__details.orders_id')
+                         ->join('products','order__details.products_id','=','products.id')
+                         ->where('order__details.orders_id', $order_id)
+                         // ->where('supplier__products.id',2)
+                         ->select('products.name as product','products.description','products.quantity','orders.order_number','orders.created_at')
+                         // ->select('supplier__products.*','products.*')
+                         ->orderBy('orders.created_at','desc')
+                         ->get();
 
-        return response()->json(['message' => 'Order_Detail retrievd successfully','data' => $Order_Detail],200);
+
+        return response()->json(['message' => 'Order_Detail retrievd successfully','data' => $Order_Details, 'orderName'=> $orderName],200);
         // return $this->sendResponse($Order_Detail->toArray(), 'Order_Detail retrieved successfully.');
     }
     public function show($order_id,$id)

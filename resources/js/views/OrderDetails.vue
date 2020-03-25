@@ -1,31 +1,7 @@
 <template>
       <div class="contain">
-        <div class="sidebar">
-          
-            <ul>
-                <li>
-                    <router-link :to="{ name: 'products' }">Products</router-link>
-                </li>
-                <hr>
-                <li>
-                    <router-link :to="{ name: 'suppliers' }">supplier</router-link>
-                </li>
-                <hr>
-                <li>
-                    <router-link :to="{ name: 'supplierProducts' }">supplierProducts</router-link>
-                </li>
-                <hr>
-                <li>
-                    <router-link :to="{ name: 'orders' }">Order</router-link>
-                </li>
-                <hr>
-                <li>
-                    <router-link :to="{ name: 'orderDetails' }">Order Details</router-link>
-                </li>
-                <hr>
-            </ul>
-        </div>
-    <div class="main" id="orderDetails">
+<Navigation></Navigation>
+    <div class="main" id="ordersdetails">
         <div class="loading" v-if="loading">
             Loading...
         </div>
@@ -37,28 +13,26 @@
         </button>
         </div>
 
-<div v-if="orderDetails">   
-  <H3>orderDetails Data</H3>
+<div v-if="ordersdetails">   
+  <H4>{{ordername.order_number}}  Order Details</H4>
 <table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Order ID</th>
-      <th scope="col">Products ID</th>
-      <th scope="col">Created At</th>
-      <th scope="col">Action</th>
+      <th scope="col">Product Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Date CReated</th>
     </tr>
   </thead>
-  <tbody v-if="orderDetails">
-    <tr v-for="{ orders_id,products_id, created_at,id } in orderDetails">
+  <tbody v-if="ordersdetails">
+    <tr v-for="details in ordersdetails">
       <th scope="row"></th>
-      <td> {{ orders_id }}</td>
-      <td> {{ products_id }}</td>
-      <td>{{ created_at }}</td>
-      <td><button class="btn-info"> View    </button></td>
-      <td><button class="btn-primary"> Edit </button></td>
-      <td><button class="btn-danger" @click="deleteOrderDetail(id)">Delete </button></td>
-
+      <td> {{ details.product }}</td>
+      <td> {{ details.description }}</td>
+      <td> {{ details.quantity }}</td>
+      <td>{{ details.created_at }}</td>
+      
     </tr>
    
   </tbody>
@@ -71,24 +45,34 @@
   </div>
 </template>
 <script>
-import axios from 'axios';
-export default {
+    import axios from 'axios';
+    import Navigation from './navigation';
+
+export default{
+    components: { 
+  'Navigation': Navigation 
+},
     data() {
         return {
             loading: false,
-            orderDetails: null,
+            ordersdetails: null,
+            ordername : null,
             error: null,
-        };0
+        };
     },
-    created() {
-        this.fetchOrderDetails();
-    },
+    mounted() {
+    this.id = this.$route.params.id // id of the article
+    this.fetchOrdedDetails(this.id)
+    console.log(this.$route.params.id );
+  },
     methods: {
-    
-        fetchOrderDetails() {
-          const token = sessionStorage.getItem('token')
-      const URL = '/api/orderDetails'
-      axios({
+        fetchOrdedDetails(id) {
+   const token = sessionStorage.getItem('token')
+   console.log(this.id);
+   // const supplierid = sessionStorage.getItem('supplierid')
+   // console.log("supplierid")
+      const URL = `/api/order/${id}/orderdetails`
+     axios({
         method: 'get',
         url: URL,
         headers: {
@@ -97,36 +81,37 @@ export default {
         }
       })
         .then(res => {
-          this.orderDetails = res.data.data
+          // this.fetchProduct()
+                    this.ordersdetails = res.data.data;
+                    this.ordername = res.data.orderName;
+          console.log(res.data.data);
         })
         .catch(err => {
           // eslint-disable-next-line
           console.log(err)
         })
     },
-     deleteOrderDetail(id) {
-      const token = sessionStorage.getItem('token')
-      const URL = `/api/orders/${id}/delete`
-     axios({
-        method: 'post',
-        url: URL,
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`
-        }
-      })
-        .then(_ => {
-          this.fetchOrderDetails()
-        })
-        .catch(err => {
-          // eslint-disable-next-line
-          console.log(err)
-        })
-    
-  
+    //             deleteProduct(id) {
+    //   const token = sessionStorage.getItem('token')
+    //   const URL = `/api/products/${id}/delete`
+    //  axios({
+    //     method: 'post',
+    //     url: URL,
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //       Authorization: `Bearer ${token}`
+    //     }
+    //   })
+    //     .then(res=> {
+    //       this.fetchProduct()
+
+    //     })
+    //     .catch(err => {
+    //       // eslint-disable-next-line
+    //       console.log(err)
+    //     })
     }
-    }
-}
+  }
 </script>
 
  

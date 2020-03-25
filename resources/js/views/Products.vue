@@ -1,30 +1,6 @@
 <template>
     <div class="contain">
-        <div class="sidebar">
-          
-            <ul>
-                <li>
-                    <router-link :to="{ name: 'products' }">Products</router-link>
-                </li>
-                <hr>
-                <li>
-                    <router-link :to="{ name: 'suppliers' }">supplier</router-link>
-                </li>
-                <hr>
-                <li>
-                    <router-link :to="{ name: 'supplierProducts' }">supplierProducts</router-link>
-                </li>
-                <hr>
-                <li>
-                    <router-link :to="{ name: 'orders' }">Order</router-link>
-                </li>
-                <hr>
-                <li>
-                    <router-link :to="{ name: 'orderDetails' }">Order Details</router-link>
-                </li>
-                <hr>
-            </ul>
-        </div>
+    <Navigation></Navigation>
         <div class="main" id="products">
             <div class="loading" v-if="loading">
                 Loading...
@@ -69,8 +45,15 @@
     </div>
 </template>
 <script>
+        // Vue.component('pagination', require('laravel-vue-pagination'));
+
     import axios from 'axios';
+    import Navigation from './navigation';
+
 export default{
+      components: { 
+  'Navigation': Navigation 
+},
     data() {
         return {
             loading: false,

@@ -1,30 +1,6 @@
 <template>
-      <div class="contain">
-        <div class="sidebar">
-          
-            <ul>
-                <li>
-                    <router-link :to="{ name: 'products' }">Products</router-link>
-                </li>
-                <hr>
-                <li>
-                    <router-link :to="{ name: 'suppliers' }">supplier</router-link>
-                </li>
-                <hr>
-                <li>
-                    <router-link :to="{ name: 'supplierProducts' }">supplierProducts</router-link>
-                </li>
-                <hr>
-                <li>
-                    <router-link :to="{ name: 'orders' }">Order</router-link>
-                </li>
-                <hr>
-                <li>
-                    <router-link :to="{ name: 'orderDetails' }">Order Details</router-link>
-                </li>
-                <hr>
-            </ul>
-        </div>
+ <div class="contain">
+  <Navigation></Navigation>
     <div class="main" id="orders">
         <div class="loading" v-if="loading">
             Loading...
@@ -53,7 +29,7 @@
       <th scope="row"></th>
       <td> {{ order_number }}</td>
       <td>{{ created_at }}</td>
-      <td><button class="btn-info"> View    </button></td>
+      <td><router-link :to="`/order/${id}/orderdetails`"><button class="btn-info" > View Products</button></router-link> </td>
       <td><button class="btn-primary"> Edit </button></td>
       <td><button class="btn-danger" @click="deleteOredr(id)">Delete</button></td>
 
@@ -69,8 +45,12 @@
   </div>
 </template>
 <script>
+import Navigation from './navigation';
 import axios from 'axios';
 export default {
+  components: { 
+  'Navigation': Navigation 
+},
     data() {
         return {
             loading: false,
@@ -127,40 +107,3 @@ export default {
 </script>
 
  
-<style type="text/css">
-.contain {
-    width: 100%;
-    /*height: 100%;*/
-    background-color: ;
-}
-
-.contain .sidebar {
-    width: 20%;
-    float: left;
-    height: 1000px;
-    background-color: grey;
-}
-
-.contain .main {
-    height: 600px;
-    width: 80%;
-    background-color: ;
-    float: right;
-}
-
-.main table{
-    background-color: ;
-    font-size:12px;
-}
-
-.tables table {
-    width: 80%;
-    background-color: ;
-    font-size: 12px;
-    /*padding: 5%;*/
-    margin-left: 5%;
-    /*margin-right: 5%;*/
-    margin-top: 20px;
-}
-
-</style>
